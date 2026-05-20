@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gamma & Beta Functions - Concepts and Formulae</title>
+
+    <!-- GOOGLE FONT -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- KATEX CSS -->
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+    <!-- KATEX JS -->
+
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);">
+    </script>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            font-family:'Poppins',sans-serif;
+
+            background:#f4f7ff;
+
+            color:#222;
+
+            line-height:1.8;
+        }
+
+        /* ================= HEADER ================= */
+
+        header{
+
+            background:linear-gradient(135deg,#111827,#1f4cff);
+
+            color:white;
+
+            text-align:center;
+
+            padding:60px 20px;
+        }
+
+        header h1{
+
+            font-size:42px;
+
+            margin-bottom:10px;
+        }
+
+        header p{
+
+            font-size:18px;
+        }
+
+        /* ================= CONTAINER ================= */
+
+        .container{
+
+            width:90%;
+
+            max-width:1200px;
+
+            margin:40px auto;
+        }
+
+        /* ================= CONTENT CARD ================= */
+
+        .content{
+
+            background:white;
+
+            padding:40px;
+
+            border-radius:20px;
+
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* ================= HEADINGS ================= */
+
+        h2{
+
+            color:#1f4cff;
+
+            margin-top:40px;
+
+            margin-bottom:20px;
+
+            font-size:32px;
+        }
+
+        h3{
+
+            color:#111827;
+
+            margin-top:25px;
+
+            margin-bottom:15px;
+
+            font-size:24px;
+        }
+
+        p{
+
+            margin-bottom:20px;
+
+            color:#444;
+
+            font-size:17px;
+
+            text-align:justify;
+        }
+
+        /* ================= FORMULA BOX ================= */
+
+        .formula{
+
+            background:#eef3ff;
+
+            padding:20px;
+
+            border-radius:12px;
+
+            margin:20px 0;
+
+            overflow-x:auto;
+
+            font-size:24px;
+        }
+
+        /* ================= SECTION BOX ================= */
+
+        .section-box{
+
+            background:#f9fbff;
+
+            border-left:5px solid orange;
+
+            padding:25px;
+
+            border-radius:12px;
+
+            margin:25px 0;
+        }
+
+        /* ================= LIST ================= */
+
+        ul{
+
+            padding-left:25px;
+
+            margin-bottom:20px;
+        }
+
+        ul li{
+
+            margin-bottom:12px;
+
+            font-size:17px;
+
+            color:#333;
+        }
+
+        /* ================= TABLE ================= */
+
+        table{
+
+            width:100%;
+
+            border-collapse:collapse;
+
+            margin-top:20px;
+        }
+
+        table th{
+
+            background:#1f4cff;
+
+            color:white;
+
+            padding:15px;
+        }
+
+        table td{
+
+            border:1px solid #ddd;
+
+            padding:15px;
+
+            text-align:center;
+        }
+
+        /* ================= BUTTON ================= */
+
+        .back-btn{
+
+            display:inline-block;
+
+            margin-top:40px;
+
+            background:orange;
+
+            color:white;
+
+            padding:12px 25px;
+
+            border-radius:8px;
+
+            text-decoration:none;
+
+            transition:0.3s;
+        }
+
+        .back-btn:hover{
+
+            background:#ff8800;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:768px){
+
+            header h1{
+
+                font-size:30px;
+            }
+
+            h2{
+
+                font-size:26px;
+            }
+
+            h3{
+
+                font-size:22px;
+            }
+
+            .content{
+
+                padding:25px;
+            }
+
+            .formula{
+
+                font-size:20px;
+            }
+
+            table{
+
+                display:block;
+
+                overflow-x:auto;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <h1>Gamma & Beta Functions</h1>
+
+        <p>
+            Concepts, Formulae, Properties and Applications
+        </p>
+
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <div class="container">
+
+        <div class="content">
+
+            <!-- ================= INTRODUCTION ================= -->
+
+            <h2>Introduction</h2>
+
+            <p>
+                Gamma and Beta Functions are important special functions in mathematics.
+                They are widely used in engineering, statistics, probability,
+                physics, calculus, machine learning, and scientific computations.
+            </p>
+
+            <p>
+                These functions help solve difficult integrations and extend
+                factorial concepts to fractional and complex numbers.
+            </p>
+
+            <!-- ================= GAMMA FUNCTION ================= -->
+
+            <h2>1. Gamma Function</h2>
+
+            <div class="section-box">
+
+                <h3>Concept of Gamma Function</h3>
+
+                <p>
+                    Gamma Function extends the factorial function for real
+                    and complex numbers.
+                </p>
+
+                <div class="formula">
+                    $$n! = 1 \times 2 \times 3 \times ... \times n$$
+                </div>
+
+                <p>
+                    Factorials are defined only for positive integers.
+                    Gamma Function allows calculations for fractions
+                    and decimal values also.
+                </p>
+
+                <div class="formula">
+                    $$\Gamma(n) = (n-1)!$$
+                </div>
+
+                <div class="formula">
+                    $$\Gamma(5)=4!=24$$
+                </div>
+
+            </div>
+
+            <!-- ================= DEFINITION ================= -->
+
+            <h3>Definition of Gamma Function</h3>
+
+            <div class="formula">
+                $$\Gamma(n)=\int_0^{\infty} x^{n-1}e^{-x}dx$$
+            </div>
+
+            <!-- ================= IMPORTANT FORMULAE ================= -->
+
+            <h3>Important Formulae of Gamma Function</h3>
+
+            <div class="formula">
+                $$\Gamma(n+1)=n!$$
+            </div>
+
+            <div class="formula">
+                $$\Gamma(n+1)=n\Gamma(n)$$
+            </div>
+
+            <div class="formula">
+                $$\Gamma(1)=1$$
+            </div>
+
+            <div class="formula">
+                $$\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}$$
+            </div>
+
+            <div class="formula">
+                $$\Gamma\left(n+\frac{1}{2}\right)=
+                \frac{(2n)!\sqrt{\pi}}{4^n n!}$$
+            </div>
+
+            <div class="formula">
+                $$\Gamma(n)\Gamma(1-n)=
+                \frac{\pi}{\sin(\pi n)}$$
+            </div>
+
+            <!-- ================= PROPERTIES ================= -->
+
+            <h3>Properties of Gamma Function</h3>
+
+            <ul>
+
+                <li>Continuous function</li>
+
+                <li>Defined for real and complex numbers</li>
+
+                <li>Undefined for negative integers</li>
+
+                <li>Used for non-integer factorials</li>
+
+                <li>Important in advanced integrations</li>
+
+            </ul>
+
+            <!-- ================= APPLICATIONS ================= -->
+
+            <h3>Applications of Gamma Function</h3>
+
+            <ul>
+
+                <li>Probability and statistics</li>
+
+                <li>Quantum physics</li>
+
+                <li>Differential equations</li>
+
+                <li>Signal processing</li>
+
+                <li>Machine learning</li>
+
+                <li>Engineering mathematics</li>
+
+            </ul>
+
+            <!-- ================= BETA FUNCTION ================= -->
+
+            <h2>2. Beta Function</h2>
+
+            <div class="section-box">
+
+                <h3>Concept of Beta Function</h3>
+
+                <p>
+                    Beta Function is another important special function
+                    used mainly in integration and probability theory.
+                </p>
+
+                <p>
+                    It is closely related to the Gamma Function.
+                </p>
+
+            </div>
+
+            <!-- ================= DEFINITION ================= -->
+
+            <h3>Definition of Beta Function</h3>
+
+            <div class="formula">
+                $$B(m,n)=\int_0^1 x^{m-1}(1-x)^{n-1}dx$$
+            </div>
+
+            <!-- ================= FORMULAE ================= -->
+
+            <h3>Important Formulae of Beta Function</h3>
+
+            <div class="formula">
+                $$B(m,n)=B(n,m)$$
+            </div>
+
+            <div class="formula">
+                $$B(m,n)=
+                \frac{\Gamma(m)\Gamma(n)}{\Gamma(m+n)}$$
+            </div>
+
+            <div class="formula">
+                $$B(m,n)=
+                \frac{(m-1)!(n-1)!}{(m+n-1)!}$$
+            </div>
+
+            <div class="formula">
+                $$B(m,n)=2\int_0^{\pi/2}
+                \sin^{2m-1}\theta
+                \cos^{2n-1}\theta d\theta$$
+            </div>
+
+            <!-- ================= PROPERTIES ================= -->
+
+            <h3>Properties of Beta Function</h3>
+
+            <ul>
+
+                <li>Symmetric function</li>
+
+                <li>Closely related to Gamma Function</li>
+
+                <li>Used in definite integrations</li>
+
+                <li>Important in statistics</li>
+
+                <li>Continuous for positive values</li>
+
+            </ul>
+
+            <!-- ================= APPLICATIONS ================= -->
+
+            <h3>Applications of Beta Function</h3>
+
+            <ul>
+
+                <li>Probability distributions</li>
+
+                <li>Engineering calculations</li>
+
+                <li>Statistical analysis</li>
+
+                <li>Signal processing</li>
+
+                <li>Physics and mathematics</li>
+
+            </ul>
+
+            <!-- ================= RELATION ================= -->
+
+            <h2>Relation Between Gamma and Beta Functions</h2>
+
+            <div class="formula">
+                $$B(m,n)=
+                \frac{\Gamma(m)\Gamma(n)}{\Gamma(m+n)}$$
+            </div>
+
+            <p>
+                This important relation shows that Beta Function
+                can be represented using Gamma Functions.
+            </p>
+
+            <!-- ================= COMPARISON TABLE ================= -->
+
+            <h2>Comparison Between Gamma and Beta Functions</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Gamma Function</th>
+
+                    <th>Beta Function</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Extension of factorial</td>
+
+                    <td>Definite integral function</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Single variable</td>
+
+                    <td>Two variables</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Used for non-integer factorials</td>
+
+                    <td>Used for integrations</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Defined from 0 to ∞</td>
+
+                    <td>Defined from 0 to 1</td>
+
+                </tr>
+
+            </table>
+
+            <!-- ================= CONCLUSION ================= -->
+
+            <h2>Conclusion</h2>
+
+            <p>
+                Gamma and Beta Functions are very important mathematical
+                functions used in science and engineering.
+            </p>
+
+            <p>
+                Gamma Function extends factorials to fractional values,
+                while Beta Function helps solve integration problems.
+            </p>
+
+            <p>
+                Both functions simplify advanced mathematical calculations
+                and are widely used in probability, physics, statistics,
+                and machine learning.
+            </p>
+
+            <!-- ================= BUTTON ================= -->
+
+            <a href="dashboard.html" class="back-btn">
+
+                Back To Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

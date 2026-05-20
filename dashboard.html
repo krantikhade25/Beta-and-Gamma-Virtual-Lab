@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gamma & Beta Dashboard</title>
+
+    <!-- CSS FILE -->
+    <link rel="stylesheet" href="dashboard.css">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME ICONS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Gamma & Beta
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="#">Home</a></li>
+
+            <li><a href="#modules">Modules</a></li>
+
+            <li><a href="quiz.html">Quiz</a></li>
+
+            <li><a href="#footer">Contact</a></li>
+
+        </ul>
+
+        <button class="logout-btn" onclick="logout()">
+            Logout
+        </button>
+
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+
+            <!-- USERNAME DISPLAY -->
+            <h2 id="welcomeUser"></h2>
+
+            <h1 class="animated-text">
+                Welcome To Gamma & Beta Function
+            </h1>
+
+            <p>
+                Explore all modules
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= MODULE CARDS ================= -->
+
+    <section class="cards-section" id="modules">
+
+        <!-- CARD 1 -->
+
+        <div class="card">
+
+            <i class="fas fa-bullseye card-icon"></i>
+
+            <h2>Aim</h2>
+
+            <p>
+                Learn the objectives and importance of Gamma & Beta Functions.
+            </p>
+
+            <button onclick="goToPage('aim.html')">
+                Explore
+            </button>
+
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="card">
+
+            <i class="fas fa-info-circle card-icon"></i>
+
+            <h2>Introduction</h2>
+
+            <p>
+                Understand the basic introduction and background of the topic.
+            </p>
+
+            <button onclick="goToPage('Introduction.html')">
+                Explore
+            </button>
+
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="card">
+
+            <i class="fas fa-square-root-alt card-icon"></i>
+
+            <h2>Concepts & Formulae</h2>
+
+            <p>
+                Study important concepts, properties and mathematical formulas.
+            </p>
+
+            <button onclick="goToPage('formulas.html')">
+                Explore
+            </button>
+
+        </div>
+
+        <!-- CARD 4 -->
+
+        <div class="card">
+
+            <i class="fas fa-book-open card-icon"></i>
+
+            <h2>Solved Examples</h2>
+
+            <p>
+                Practice solved examples with detailed step-by-step solutions.
+            </p>
+
+            <button onclick="goToPage('examples.html')">
+                Explore
+            </button>
+
+        </div>
+
+        <!-- CARD 5 -->
+
+        <div class="card">
+
+            <i class="fas fa-question-circle card-icon"></i>
+
+            <h2>Quiz</h2>
+
+            <p>
+                Test your knowledge using interactive quizzes and activities.
+            </p>
+
+            <button onclick="goToPage('quiz.html')">
+                Start Quiz
+            </button>
+
+        </div>
+
+        <!-- CARD 6 -->
+
+        <div class="card">
+
+            <i class="fas fa-users card-icon"></i>
+
+            <h2>Contributors</h2>
+
+            <p>
+                Meet the contributors and project development team members.
+            </p>
+
+            <button onclick="goToPage('contributors.html')">
+                Explore
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="footer">
+
+        <h2>Gamma & Beta Learning Dashboard</h2>
+
+        <p>
+            Educational Learning Platform for Engineering Mathematics
+        </p>
+
+        <p>
+            © 2026 All Rights Reserved
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // OPEN PAGES
+
+        function goToPage(page){
+
+            window.location.href = page;
+        }
+
+        // SHOW USERNAME
+
+        let username = localStorage.getItem("username");
+
+        if(username){
+
+            document.getElementById("welcomeUser").innerHTML =
+                "Welcome, " + username + " 🎉";
+        }
+
+        // LOGOUT FUNCTION
+
+        function logout(){
+
+            localStorage.clear();
+
+            window.location.href = "index.html";
+        }
+
+    </script>
+
+</body>
+
+</html>

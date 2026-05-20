@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Introduction - Beta & Gamma Functions</title>
+
+    <!-- GOOGLE FONT -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- KATEX FOR FORMULAS -->
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);">
+    </script>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            font-family:'Poppins',sans-serif;
+
+            background:#f4f7ff;
+
+            color:#222;
+
+            line-height:1.8;
+        }
+
+        /* ================= HEADER ================= */
+
+        header{
+
+            background:linear-gradient(135deg,#111827,#1f4cff);
+
+            color:white;
+
+            text-align:center;
+
+            padding:50px 20px;
+        }
+
+        header h1{
+
+            font-size:42px;
+
+            margin-bottom:10px;
+        }
+
+        header p{
+
+            font-size:18px;
+        }
+
+        /* ================= CONTAINER ================= */
+
+        .container{
+
+            width:90%;
+
+            max-width:1200px;
+
+            margin:40px auto;
+        }
+
+        /* ================= CARD ================= */
+
+        .card{
+
+            background:white;
+
+            padding:40px;
+
+            border-radius:20px;
+
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h2{
+
+            color:#1f4cff;
+
+            margin-bottom:20px;
+
+            font-size:32px;
+        }
+
+        .card p{
+
+            font-size:17px;
+
+            color:#444;
+
+            margin-bottom:20px;
+
+            text-align:justify;
+        }
+
+        /* ================= FORMULA BOX ================= */
+
+        .formula{
+
+            background:#eef3ff;
+
+            padding:18px;
+
+            border-radius:12px;
+
+            margin:20px 0;
+
+            font-size:24px;
+
+            overflow-x:auto;
+        }
+
+        /* ================= APPLICATIONS BOX ================= */
+
+        .applications{
+
+            background:#eef3ff;
+
+            padding:25px;
+
+            border-radius:15px;
+
+            margin-top:25px;
+        }
+
+        .applications h3{
+
+            color:#1f4cff;
+
+            margin-bottom:15px;
+        }
+
+        .applications ul{
+
+            padding-left:20px;
+        }
+
+        .applications li{
+
+            margin-bottom:10px;
+        }
+
+        /* ================= BUTTON ================= */
+
+        .back-btn{
+
+            display:inline-block;
+
+            margin-top:30px;
+
+            background:orange;
+
+            color:white;
+
+            padding:12px 25px;
+
+            text-decoration:none;
+
+            border-radius:8px;
+
+            transition:0.3s;
+        }
+
+        .back-btn:hover{
+
+            background:#ff8800;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:768px){
+
+            header h1{
+
+                font-size:30px;
+            }
+
+            .card{
+
+                padding:25px;
+            }
+
+            .card h2{
+
+                font-size:26px;
+            }
+
+            .formula{
+
+                font-size:20px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <h1>Introduction to Beta & Gamma Functions</h1>
+
+        <p>
+            Special Functions in Mathematics and Engineering
+        </p>
+
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>Introduction</h2>
+
+            <p>
+                Beta and Gamma functions are important special functions in mathematics
+                that are widely used in engineering, physics, probability, statistics,
+                and advanced scientific calculations.
+            </p>
+
+            <p>
+                These functions were developed to solve complex mathematical problems
+                that cannot be handled easily using ordinary algebraic methods.
+            </p>
+
+            <p>
+                They play a major role in higher calculus and mathematical analysis
+                because of their ability to simplify integration, factorial operations,
+                and continuous mathematical models.
+            </p>
+
+            <!-- ================= FACTORIAL ================= -->
+
+            <h2>Factorial Concept</h2>
+
+            <p>
+                Normally, factorial is defined only for positive integers:
+            </p>
+
+            <div class="formula">
+                $$3! = 3 \times 2 \times 1 = 6$$
+            </div>
+
+            <div class="formula">
+                $$5! = 5 \times 4 \times 3 \times 2 \times 1 = 120$$
+            </div>
+
+            <p>
+                However, factorials cannot directly be calculated for decimal or
+                fractional values like 2.5! or 0.5!.
+            </p>
+
+            <p>
+                To solve this limitation, mathematicians developed the Gamma function,
+                which extends the factorial concept to real and complex numbers.
+            </p>
+
+            <!-- ================= GAMMA FUNCTION ================= -->
+
+            <h2>Gamma Function</h2>
+
+            <p>
+                The Gamma function is represented by Γ(n) and is mathematically
+                defined using improper integration.
+            </p>
+
+            <div class="formula">
+                $$\Gamma(n)=\int_{0}^{\infty} x^{n-1}e^{-x}dx$$
+            </div>
+
+            <p>
+                One of the most important properties of the Gamma function is:
+            </p>
+
+            <div class="formula">
+                $$\Gamma(n)=(n-1)!$$
+            </div>
+
+            <p>
+                This relation shows that the Gamma function behaves like a factorial
+                function for positive integers.
+            </p>
+
+            <p>
+                Because of this property, the Gamma function is extensively used in
+                probability distributions, signal processing, fluid mechanics,
+                quantum physics, and engineering mathematics.
+            </p>
+
+            <!-- ================= BETA FUNCTION ================= -->
+
+            <h2>Beta Function</h2>
+
+            <p>
+                The Beta function is another special mathematical function closely
+                related to the Gamma function.
+            </p>
+
+            <p>
+                It is represented by B(x,y) and is mainly used in integration,
+                calculus, and probability theory.
+            </p>
+
+            <div class="formula">
+                $$B(x,y)=\int_{0}^{1} t^{x-1}(1-t)^{y-1}dt$$
+            </div>
+
+            <p>
+                The Beta function has an important relationship with the Gamma function:
+            </p>
+
+            <div class="formula">
+                $$B(x,y)=\frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}$$
+            </div>
+
+            <p>
+                This relation helps simplify many complicated integrals and
+                mathematical equations.
+            </p>
+
+            <!-- ================= APPLICATIONS ================= -->
+
+            <div class="applications">
+
+                <h3>Applications of Beta & Gamma Functions</h3>
+
+                <ul>
+
+                    <li>Probability and Statistics</li>
+
+                    <li>Engineering Mathematics</li>
+
+                    <li>Signal Processing</li>
+
+                    <li>Quantum Physics</li>
+
+                    <li>Differential Equations</li>
+
+                    <li>Machine Learning</li>
+
+                    <li>Artificial Intelligence</li>
+
+                    <li>Data Science</li>
+
+                </ul>
+
+            </div>
+
+            <!-- ================= CONCLUSION ================= -->
+
+            <h2>Conclusion</h2>
+
+            <p>
+                This project focuses on understanding the concepts, formulas,
+                properties, and applications of Beta and Gamma functions through
+                theory, simulations, calculations, and interactive web development.
+            </p>
+
+            <p>
+                By combining mathematics with programming technologies such as
+                HTML, CSS, and JavaScript, the project provides a practical and
+                interactive learning experience for students.
+            </p>
+
+            <!-- ================= BUTTON ================= -->
+
+            <a href="dashboard.html" class="back-btn">
+
+                Back To Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gamma and Beta Function Quiz</title>
+
+<!-- MathJax -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+    padding:20px;
+    line-height:1.7;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#1e3a5f;
+}
+
+.level-title{
+    text-align:center;
+    color:#0077cc;
+    margin-top:30px;
+}
+
+.timer{
+    position:sticky;
+    top:10px;
+    background:#0077cc;
+    color:white;
+    padding:15px;
+    text-align:center;
+    border-radius:10px;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:20px;
+    z-index:1000;
+}
+
+.warning{
+    background:red !important;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0.6;
+    }
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.options label{
+    display:block;
+    background:#f8f8f8;
+    padding:10px;
+    margin:8px 0;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.correct{
+    background:#b7f7b7 !important;
+}
+
+.wrong{
+    background:#ffb3b3 !important;
+}
+
+button{
+    display:block;
+    margin:30px auto;
+    padding:14px 30px;
+    border:none;
+    border-radius:10px;
+    background:#0077cc;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#005fa3;
+}
+
+#result{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    margin-top:30px;
+}
+
+.hidden{
+    display:none;
+}
+
+.answer-detail{
+    margin-top:15px;
+    padding:15px;
+    background:#eef6ff;
+    border-left:5px solid #0077cc;
+    border-radius:6px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Gamma and Beta Function Quiz</h1>
+
+<div id="timer" class="timer">
+Time Left: 30:00
+</div>
+
+<!-- ================= LEVEL 1 ================= -->
+
+<div id="level1">
+
+<h2 class="level-title">Level 1 : Gamma Function Quiz</h2>
+
+<!-- Q1 -->
+<div class="card">
+<h3>Q1.</h3>
+<p>\[\int_0^\infty xe^{-x}dx\]</p>
+<div class="options">
+<label><input type="radio" name="q1" value="A"> A) 1</label>
+<label><input type="radio" name="q1" value="B"> B) 2</label>
+<label><input type="radio" name="q1" value="C"> C) 3</label>
+<label><input type="radio" name="q1" value="D"> D) 4</label>
+</div>
+</div>
+
+<!-- Q2 -->
+<div class="card">
+<h3>Q2.</h3>
+<p>\[\int_0^\infty x^2e^{-x}dx\]</p>
+<div class="options">
+<label><input type="radio" name="q2" value="A"> A) 1</label>
+<label><input type="radio" name="q2" value="B"> B) 2</label>
+<label><input type="radio" name="q2" value="C"> C) 6</label>
+<label><input type="radio" name="q2" value="D"> D) 24</label>
+</div>
+</div>
+
+<!-- Q3 -->
+<div class="card">
+<h3>Q3.</h3>
+<p>\[\Gamma(5)=?\]</p>
+<div class="options">
+<label><input type="radio" name="q3" value="A"> A) 24</label>
+<label><input type="radio" name="q3" value="B"> B) 120</label>
+<label><input type="radio" name="q3" value="C"> C) 6</label>
+<label><input type="radio" name="q3" value="D"> D) 1</label>
+</div>
+</div>
+
+<!-- Q4 -->
+<div class="card">
+<h3>Q4.</h3>
+<p>\[\Gamma\left(\frac12\right)=?\]</p>
+<div class="options">
+<label><input type="radio" name="q4" value="A"> A) 1</label>
+<label><input type="radio" name="q4" value="B"> B) \(\pi\)</label>
+<label><input type="radio" name="q4" value="C"> C) \(\sqrt{\pi}\)</label>
+<label><input type="radio" name="q4" value="D"> D) 2</label>
+</div>
+</div>
+
+<!-- Q5 -->
+<div class="card">
+<h3>Q5.</h3>
+<p>\[\int_0^\infty e^{-x^2}dx\]</p>
+<div class="options">
+<label><input type="radio" name="q5" value="A"> A) \(\sqrt{\pi}\)</label>
+<label><input type="radio" name="q5" value="B"> B) \(\frac{\sqrt{\pi}}2\)</label>
+<label><input type="radio" name="q5" value="C"> C) 1</label>
+<label><input type="radio" name="q5" value="D"> D) 2</label>
+</div>
+</div>
+
+<!-- Q6 -->
+<div class="card">
+<h3>Q6.</h3>
+<p>\[\int_0^\infty x^3e^{-x}dx\]</p>
+<div class="options">
+<label><input type="radio" name="q6" value="A"> A) 6</label>
+<label><input type="radio" name="q6" value="B"> B) 24</label>
+<label><input type="radio" name="q6" value="C"> C) 2</label>
+<label><input type="radio" name="q6" value="D"> D) 1</label>
+</div>
+</div>
+
+<!-- Q7 -->
+<div class="card">
+<h3>Q7.</h3>
+<p>\[\int_0^\infty x^{1/2}e^{-x}dx\]</p>
+<div class="options">
+<label><input type="radio" name="q7" value="A"> A) \(\sqrt{\pi}\)</label>
+<label><input type="radio" name="q7" value="B"> B) 1</label>
+<label><input type="radio" name="q7" value="C"> C) 2</label>
+<label><input type="radio" name="q7" value="D"> D) 0</label>
+</div>
+</div>
+
+<!-- Q8 -->
+<div class="card">
+<h3>Q8.</h3>
+<p>\[\Gamma(4)=?\]</p>
+<div class="options">
+<label><input type="radio" name="q8" value="A"> A) 2</label>
+<label><input type="radio" name="q8" value="B"> B) 6</label>
+<label><input type="radio" name="q8" value="C"> C) 24</label>
+<label><input type="radio" name="q8" value="D"> D) 120</label>
+</div>
+</div>
+
+<!-- Q9 -->
+<div class="card">
+<h3>Q9.</h3>
+<p>\[\int_0^\infty e^{-x^4}dx\]</p>
+<div class="options">
+<label><input type="radio" name="q9" value="A"> A) \(\frac14\Gamma(\frac14)\)</label>
+<label><input type="radio" name="q9" value="B"> B) \(\pi\)</label>
+<label><input type="radio" name="q9" value="C"> C) 1</label>
+<label><input type="radio" name="q9" value="D"> D) 2</label>
+</div>
+</div>
+
+<!-- Q10 -->
+<div class="card">
+<h3>Q10.</h3>
+<p>\[\int_0^1 x^4(\log x)^3dx\]</p>
+<div class="options">
+<label><input type="radio" name="q10" value="A"> A) \(-\frac6{625}\)</label>
+<label><input type="radio" name="q10" value="B"> B) \(\frac6{625}\)</label>
+<label><input type="radio" name="q10" value="C"> C) 1</label>
+<label><input type="radio" name="q10" value="D"> D) 0</label>
+</div>
+</div>
+
+<button onclick="submitLevel1()">Submit Level 1</button>
+
+</div>
+
+<!-- ================= LEVEL 2 ================= -->
+
+<div id="level2" class="hidden">
+
+<h2 class="level-title">Level 2 : Beta Function Quiz</h2>
+
+<!-- Q11 -->
+<div class="card">
+<h3>Q11.</h3>
+<p>\[\int_0^\infty \frac{dx}{1+x^2}\]</p>
+<div class="options">
+<label><input type="radio" name="q11" value="A"> A) \(\pi\)</label>
+<label><input type="radio" name="q11" value="B"> B) \(\frac{\pi}{2}\)</label>
+<label><input type="radio" name="q11" value="C"> C) 1</label>
+<label><input type="radio" name="q11" value="D"> D) 0</label>
+</div>
+</div>
+
+<!-- Q12 -->
+<div class="card">
+<h3>Q12.</h3>
+<p>\[\int_0^\infty \frac{dx}{1+x^4}\]</p>
+<div class="options">
+<label><input type="radio" name="q12" value="A"> A) \(\frac{\pi}{2\sqrt2}\)</label>
+<label><input type="radio" name="q12" value="B"> B) \(\pi\)</label>
+<label><input type="radio" name="q12" value="C"> C) 1</label>
+<label><input type="radio" name="q12" value="D"> D) 2</label>
+</div>
+</div>
+
+<!-- Q13 -->
+<div class="card">
+<h3>Q13.</h3>
+<p>\[\beta(1,1)=?\]</p>
+<div class="options">
+<label><input type="radio" name="q13" value="A"> A) 0</label>
+<label><input type="radio" name="q13" value="B"> B) 1</label>
+<label><input type="radio" name="q13" value="C"> C) 2</label>
+<label><input type="radio" name="q13" value="D"> D) \(\pi\)</label>
+</div>
+</div>
+
+<!-- Q14 -->
+<div class="card">
+<h3>Q14.</h3>
+<p>\[\beta(m,n)=?\]</p>
+<div class="options">
+<label><input type="radio" name="q14" value="A"> A) \(\frac{\Gamma(m)\Gamma(n)}{\Gamma(m+n)}\)</label>
+<label><input type="radio" name="q14" value="B"> B) \(m+n\)</label>
+<label><input type="radio" name="q14" value="C"> C) \(mn\)</label>
+<label><input type="radio" name="q14" value="D"> D) 1</label>
+</div>
+</div>
+
+<!-- Q15 -->
+<div class="card">
+<h3>Q15.</h3>
+<p>\[\int_0^1 x^2(1-x)^3dx\]</p>
+<div class="options">
+<label><input type="radio" name="q15" value="A"> A) \(\beta(3,4)\)</label>
+<label><input type="radio" name="q15" value="B"> B) \(\pi\)</label>
+<label><input type="radio" name="q15" value="C"> C) 0</label>
+<label><input type="radio" name="q15" value="D"> D) 1</label>
+</div>
+</div>
+
+<!-- Q16 -->
+<div class="card">
+<h3>Q16.</h3>
+<p>\[\int_0^{\pi/2}\sin\theta\cos\theta d\theta\]</p>
+<div class="options">
+<label><input type="radio" name="q16" value="A"> A) 1</label>
+<label><input type="radio" name="q16" value="B"> B) \(\frac12\)</label>
+<label><input type="radio" name="q16" value="C"> C) 0</label>
+<label><input type="radio" name="q16" value="D"> D) \(\pi\)</label>
+</div>
+</div>
+
+<!-- Q17 -->
+<div class="card">
+<h3>Q17.</h3>
+<p>\[\int_0^\infty \frac{x^2}{(1+x^2)^2}dx\]</p>
+<div class="options">
+<label><input type="radio" name="q17" value="A"> A) \(\frac{\pi}{4}\)</label>
+<label><input type="radio" name="q17" value="B"> B) \(\pi\)</label>
+<label><input type="radio" name="q17" value="C"> C) 1</label>
+<label><input type="radio" name="q17" value="D"> D) 2</label>
+</div>
+</div>
+
+<!-- Q18 -->
+<div class="card">
+<h3>Q18.</h3>
+<p>\[\beta(2,3)=?\]</p>
+<div class="options">
+<label><input type="radio" name="q18" value="A"> A) \(\frac1{12}\)</label>
+<label><input type="radio" name="q18" value="B"> B) 1</label>
+<label><input type="radio" name="q18" value="C"> C) 2</label>
+<label><input type="radio" name="q18" value="D"> D) \(\pi\)</label>
+</div>
+</div>
+
+<!-- Q19 -->
+<div class="card">
+<h3>Q19.</h3>
+<p>\[\int_0^{\pi/2}d\theta\]</p>
+<div class="options">
+<label><input type="radio" name="q19" value="A"> A) \(\pi\)</label>
+<label><input type="radio" name="q19" value="B"> B) \(\frac{\pi}{2}\)</label>
+<label><input type="radio" name="q19" value="C"> C) 1</label>
+<label><input type="radio" name="q19" value="D"> D) 0</label>
+</div>
+</div>
+
+<!-- Q20 -->
+<div class="card">
+<h3>Q20.</h3>
+<p>\[\int_0^\infty \frac{x^{m-1}}{(1+x)^{m+n}}dx\]</p>
+<div class="options">
+<label><input type="radio" name="q20" value="A"> A) \(\beta(m,n)\)</label>
+<label><input type="radio" name="q20" value="B"> B) 1</label>
+<label><input type="radio" name="q20" value="C"> C) \(\pi\)</label>
+<label><input type="radio" name="q20" value="D"> D) 0</label>
+</div>
+</div>
+
+<button onclick="submitQuiz()">Finish Quiz</button>
+
+</div>
+
+<!-- RESULT -->
+
+<div id="result" class="hidden"></div>
+
+</div>
+
+<script>
+
+let currentLevel = 1;
+let totalScore = 0;
+
+const answers = {
+q1:"A",
+q2:"B",
+q3:"A",
+q4:"C",
+q5:"B",
+q6:"A",
+q7:"A",
+q8:"B",
+q9:"A",
+q10:"A",
+q11:"B",
+q12:"A",
+q13:"B",
+q14:"A",
+q15:"A",
+q16:"B",
+q17:"A",
+q18:"A",
+q19:"B",
+q20:"A"
+};
+
+const explanations = {
+
+q1:"Using Gamma Function: Γ(2)=1!=1",
+
+q2:"Γ(3)=2!=2",
+
+q3:"Γ(5)=4!=24",
+
+q4:"Γ(1/2)=√π",
+
+q5:"Standard Gaussian integral gives √π/2",
+
+q6:"Γ(4)=3!=6",
+
+q7:"Integral equals Γ(3/2)=√π/2",
+
+q8:"Γ(4)=3!=6",
+
+q9:"Using formula ∫₀∞ e⁻ˣⁿdx=(1/n)Γ(1/n)",
+
+q10:"Using ∫₀¹xᵐ(logx)ⁿdx formula",
+
+q11:"Standard integral value = π/2",
+
+q12:"Standard Beta function result",
+
+q13:"β(1,1)=1",
+
+q14:"Fundamental Beta-Gamma relation",
+
+q15:"Matches Beta form β(3,4)",
+
+q16:"sinθcosθ = (1/2)sin2θ",
+
+q17:"Standard Beta integral result",
+
+q18:"β(2,3)=Γ(2)Γ(3)/Γ(5)=1×2/24=1/12",
+
+q19:"Integral of dθ from 0 to π/2 = π/2",
+
+q20:"Standard Beta function formula"
+
+};
+
+let timeLeft = 1800;
+
+let timer = setInterval(updateTimer,1000);
+
+function updateTimer(){
+
+let minutes = Math.floor(timeLeft/60);
+let seconds = timeLeft%60;
+
+document.getElementById("timer").innerHTML =
+`Time Left: ${minutes}:${seconds<10?'0':''}${seconds}`;
+
+if(timeLeft <= 300){
+document.getElementById("timer").classList.add("warning");
+}
+
+if(timeLeft <= 0){
+
+clearInterval(timer);
+
+if(currentLevel === 1){
+submitLevel1();
+}
+else{
+submitQuiz();
+}
+}
+
+timeLeft--;
+}
+
+function checkAnswers(start,end){
+
+let score = 0;
+
+for(let i=start;i<=end;i++){
+
+let q = "q"+i;
+
+let selected = document.querySelector(`input[name="${q}"]:checked`);
+
+let labels = document.querySelectorAll(`input[name="${q}"]`);
+
+labels.forEach(option=>{
+
+let parent = option.parentElement;
+
+if(option.value === answers[q]){
+parent.classList.add("correct");
+}
+
+if(selected && option.checked && option.value !== answers[q]){
+parent.classList.add("wrong");
+}
+
+});
+
+if(selected && selected.value === answers[q]){
+score++;
+}
+}
+
+return score;
+}
+
+function submitLevel1(){
+
+clearInterval(timer);
+
+let score1 = checkAnswers(1,10);
+
+totalScore += score1;
+
+alert(`Level 1 Completed!\nYour Score: ${score1}/10\nNow Starting Level 2`);
+
+document.getElementById("level1").classList.add("hidden");
+
+document.getElementById("level2").classList.remove("hidden");
+
+currentLevel = 2;
+
+timeLeft = 1800;
+
+document.getElementById("timer").classList.remove("warning");
+
+timer = setInterval(updateTimer,1000);
+}
+
+function submitQuiz(){
+
+clearInterval(timer);
+
+let score2 = checkAnswers(11,20);
+
+totalScore += score2;
+
+document.getElementById("level2").classList.add("hidden");
+
+let resultDiv = document.getElementById("result");
+
+resultDiv.classList.remove("hidden");
+
+let html = `
+<h2>Quiz Completed</h2>
+<h3>Total Score: ${totalScore}/20</h3>
+<hr>
+<h2>Detailed Explanations</h2>
+`;
+
+for(let key in explanations){
+
+html += `
+<div class="answer-detail">
+<strong>${key.toUpperCase()}</strong><br><br>
+Correct Answer: ${answers[key]}<br><br>
+${explanations[key]}
+</div>
+`;
+}
+
+resultDiv.innerHTML = html;
+}
+
+</script>
+
+</body>
+</html>

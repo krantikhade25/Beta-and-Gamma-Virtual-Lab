@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Beta & Gamma Functions Login</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      background: linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+      position:relative;
+    }
+
+    /* Floating Symbols */
+
+    .symbols{
+      position:absolute;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      z-index:0;
+    }
+
+    .symbols span{
+      position:absolute;
+      color:rgba(255,255,255,0.15);
+      font-size:35px;
+      animation: float 12s linear infinite;
+    }
+
+    @keyframes float{
+
+      0%{
+        transform: translateY(100vh) rotate(0deg);
+        opacity:0;
+      }
+
+      10%{
+        opacity:1;
+      }
+
+      100%{
+        transform: translateY(-120vh) rotate(360deg);
+        opacity:0;
+      }
+    }
+
+    /* Login Box */
+
+    .login-container{
+      position:relative;
+      z-index:1;
+      width:380px;
+      padding:35px;
+      border-radius:20px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      box-shadow:0 8px 32px rgba(0,0,0,0.3);
+      text-align:center;
+      color:white;
+    }
+
+    .login-container h1{
+      margin-bottom:10px;
+      font-size:32px;
+    }
+
+    .login-container p{
+      margin-bottom:25px;
+      color:#dbeafe;
+    }
+
+    .input-box{
+      margin-bottom:18px;
+      text-align:left;
+    }
+
+    .input-box label{
+      display:block;
+      margin-bottom:6px;
+      font-size:14px;
+    }
+
+    .input-box input{
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:10px;
+      outline:none;
+      font-size:15px;
+    }
+
+    .btn{
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:10px;
+      background:#38bdf8;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+      margin-top:10px;
+    }
+
+    .btn:hover{
+      background:#0ea5e9;
+      transform:scale(1.03);
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Floating Symbols -->
+
+  <div class="symbols">
+
+    <span style="left:10%; animation-delay:0s;">Γ(x)</span>
+
+    <span style="left:25%; animation-delay:2s;">β(m,n)</span>
+
+    <span style="left:40%; animation-delay:4s;">∫</span>
+
+    <span style="left:55%; animation-delay:1s;">Σ</span>
+
+    <span style="left:70%; animation-delay:5s;">π</span>
+
+    <span style="left:85%; animation-delay:3s;">∞</span>
+
+  </div>
+
+  <!-- Login Box -->
+
+  <div class="login-container">
+
+    <h1>Beta & Gamma Functions</h1>
+
+    <p>Mathematical Functions Portal</p>
+
+    <div id="loginForm">
+
+      <div class="input-box">
+
+        <label>Username</label>
+
+        <input
+          type="text"
+          id="username"
+          placeholder="Enter username"
+          required
+        >
+
+      </div>
+
+      <div class="input-box">
+
+        <label>Email ID</label>
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter email"
+          required
+        >
+
+      </div>
+
+      <button class="btn" onclick="login()">
+        Enter Website
+      </button>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function login() {
+
+      let username = document.getElementById("username").value.trim();
+
+      let email = document.getElementById("email").value.trim();
+
+      // Validation
+
+      if(username === "" || email === ""){
+
+        alert("Please fill all details");
+
+        return;
+      }
+
+      // Save data
+
+      localStorage.setItem("username", username);
+
+      localStorage.setItem("email", email);
+
+      // Move to Dashboard
+
+      window.location.href = "dashboard.html";
+    }
+
+  </script>
+
+</body>
+</html>

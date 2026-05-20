@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gamma & Beta Dashboard</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME ICONS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:#f1f5f9;
+            color:#111827;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar{
+            width:100%;
+            padding:18px 8%;
+            background:#0f172a;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            position:fixed;
+            top:0;
+            z-index:1000;
+        }
+
+        .logo{
+            color:white;
+            font-size:28px;
+            font-weight:700;
+        }
+
+        .nav-links{
+            display:flex;
+            gap:25px;
+            list-style:none;
+        }
+
+        .nav-links a{
+            color:white;
+            text-decoration:none;
+            font-size:16px;
+            transition:0.3s;
+        }
+
+        .nav-links a:hover{
+            color:#38bdf8;
+        }
+
+        .logout-btn{
+            padding:10px 18px;
+            border:none;
+            border-radius:8px;
+            background:#ef4444;
+            color:white;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .logout-btn:hover{
+            background:#dc2626;
+        }
+
+        /* ================= HERO SECTION ================= */
+
+        .hero{
+            height:100vh;
+            background:
+                linear-gradient(rgba(15,23,42,0.7), rgba(30,58,138,0.7)),
+                url('https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=1600&auto=format&fit=crop');
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:white;
+            padding:20px;
+        }
+
+        .hero-content h1{
+            font-size:55px;
+            margin-bottom:15px;
+            animation:slideDown 1s ease;
+        }
+
+        .hero-content p{
+            font-size:20px;
+            color:#dbeafe;
+        }
+
+        @keyframes slideDown{
+            from{
+                opacity:0;
+                transform:translateY(-50px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        /* ================= DASHBOARD STATS ================= */
+
+        .dashboard-stats{
+            width:90%;
+            margin:60px auto;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:25px;
+        }
+
+        .stat-box{
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        .stat-box:hover{
+            transform:translateY(-8px);
+        }
+
+        .stat-box i{
+            font-size:40px;
+            color:#2563eb;
+            margin-bottom:15px;
+        }
+
+        .stat-box h2{
+            font-size:35px;
+            color:#0f172a;
+        }
+
+        .stat-box p{
+            margin-top:10px;
+            color:#64748b;
+        }
+
+        /* ================= MODULE CARDS ================= */
+
+        .cards-section{
+            width:90%;
+            margin:50px auto;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:30px;
+        }
+
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+            transition:0.4s;
+        }
+
+        .card:hover{
+            transform:translateY(-10px);
+        }
+
+        .card-icon{
+            font-size:50px;
+            color:#2563eb;
+            margin-bottom:20px;
+        }
+
+        .card h2{
+            margin-bottom:15px;
+            color:#0f172a;
+        }
+
+        .card p{
+            color:#64748b;
+            margin-bottom:20px;
+            line-height:1.6;
+        }
+
+        .card button{
+            padding:12px 22px;
+            border:none;
+            border-radius:10px;
+            background:#2563eb;
+            color:white;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .card button:hover{
+            background:#1d4ed8;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer{
+            background:#0f172a;
+            color:white;
+            text-align:center;
+            padding:40px 20px;
+            margin-top:60px;
+        }
+
+        footer h2{
+            margin-bottom:15px;
+        }
+
+        footer p{
+            margin:8px 0;
+            color:#cbd5e1;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:768px){
+
+            .navbar{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            .hero-content h1{
+                font-size:38px;
+            }
+
+            .hero-content p{
+                font-size:18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Gamma & Beta
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="#">Home</a></li>
+
+            <li><a href="#modules">Modules</a></li>
+
+            <li><a href="quiz.html">Quiz</a></li>
+
+            <li><a href="#footer">Contact</a></li>
+
+        </ul>
+
+        <button class="logout-btn" onclick="logout()">
+            Logout
+        </button>
+
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1 class="animated-text">
+                Welcome To Gamma & Beta Function
+            </h1>
+
+            <p>
+                Explore all modules and improve your Engineering Mathematics skills
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= DASHBOARD SECTION ================= -->
+
+    <section class="dashboard-stats">
+
+        <div class="stat-box">
+            <i class="fas fa-book"></i>
+            <h2>6+</h2>
+            <p>Learning Modules</p>
+        </div>
+
+        <div class="stat-box">
+            <i class="fas fa-question"></i>
+            <h2>20+</h2>
+            <p>Quiz Questions</p>
+        </div>
+
+        <div class="stat-box">
+            <i class="fas fa-square-root-variable"></i>
+            <h2>15+</h2>
+            <p>Important Formulae</p>
+        </div>
+
+        <div class="stat-box">
+            <i class="fas fa-user-graduate"></i>
+            <h2>100%</h2>
+            <p>Student Friendly</p>
+        </div>
+
+    </section>
+
+    <!-- ================= MODULE CARDS ================= -->
+
+    <section class="cards-section" id="modules">
+
+        <!-- CARD 1 -->
+
+        <div class="card">
+
+            <i class="fas fa-bullseye card-icon"></i>
+
+            <h2>Aim</h2>
+
+            <p>
+                Learn the objectives and importance of Gamma & Beta Functions.
+            </p>
+
+            <button onclick="goToPage('aim.html')">
+                Explore
+            </button>
+
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="card">
+
+            <i class="fas fa-info-circle card-icon"></i>
+
+            <h2>Introduction</h2>
+
+            <p>
+                Understand the basic introduction and background of the topic.
+            </p>
+
+            <button onclick="goToPage('introduction.html')">
+                Explore
+            </button>
+
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="card">
+
+            <i class="fas fa-square-root-alt card-icon"></i>
+
+            <h2>Concepts & Formulae</h2>
+
+            <p>
+                Study important concepts, properties and mathematical formulas.
+            </p>
+
+            <button onclick="goToPage('formulas.html')">
+                Explore
+            </button>
+
+        </div>
+
+        <!-- CARD 4 -->
+
+        <div class="card">
+
+            <i class="fas fa-book-open card-icon"></i>
+
+            <h2>Solved Examples</h2>
+
+            <p>
+                Practice solved examples with detailed step-by-step solutions.
+            </p>
+
+            <button onclick="goToPage('examples.html')">
+                Explore
+            </button>
+
+        </div>
+
+        <!-- CARD 5 -->
+
+        <div class="card">
+
+            <i class="fas fa-question-circle card-icon"></i>
+
+            <h2>Quiz</h2>
+
+            <p>
+                Test your knowledge using interactive quizzes and activities.
+            </p>
+
+            <button onclick="goToPage('quiz.html')">
+                Start Quiz
+            </button>
+
+        </div>
+
+        <!-- CARD 6 -->
+
+        <div class="card">
+
+            <i class="fas fa-users card-icon"></i>
+
+            <h2>Contributors</h2>
+
+            <p>
+                Meet the contributors and project development team members.
+            </p>
+
+            <button onclick="goToPage('contributors.html')">
+                Explore
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="footer">
+
+        <h2>Gamma & Beta Learning Dashboard</h2>
+
+        <p>
+            Educational Learning Platform for Engineering Mathematics
+        </p>
+
+        <p>
+            © 2026 All Rights Reserved
+        </p>
+
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        // Navigate to pages
+        function goToPage(page){
+            window.location.href = page;
+        }
+
+        // Logout Function
+        function logout(){
+
+            localStorage.clear();
+
+            alert("Logged Out Successfully");
+
+            window.location.href = "index.html";
+        }
+
+    </script>
+
+</body>
+
+</html>

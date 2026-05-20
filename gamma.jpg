@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gamma Function Quiz</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+    text-align:center;
+    margin:0;
+    padding:0;
+}
+
+header{
+    background:#0077cc;
+    color:white;
+    padding:20px;
+}
+
+.quiz-container{
+    width:80%;
+    max-width:800px;
+    margin:30px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0px 0px 10px gray;
+}
+
+#timer{
+    font-size:24px;
+    color:red;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.question{
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+.option{
+    display:block;
+    width:80%;
+    margin:10px auto;
+    padding:12px;
+    border:none;
+    background:#eeeeee;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.option:hover{
+    background:#cfe8ff;
+}
+
+#nextBtn{
+    background:#0077cc;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+#nextBtn:hover{
+    background:#005fa3;
+}
+
+#result{
+    font-size:24px;
+    color:green;
+    margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Level 1 - Gamma Function Quiz</h1>
+</header>
+
+<div class="quiz-container">
+
+    <!-- TIMER -->
+    <div id="timer">
+        Time Left: 05:00
+    </div>
+
+    <!-- QUESTION -->
+    <div id="question" class="question"></div>
+
+    <!-- OPTIONS -->
+    <div id="options"></div>
+
+    <!-- NEXT BUTTON -->
+    <button id="nextBtn" onclick="nextQuestion()">
+        Next Question
+    </button>
+
+    <!-- RESULT -->
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+// QUESTIONS
+
+const quiz = [
+
+{
+    question:"1. Evaluate ∫₀∞ e⁻ˣ² dx",
+    options:[
+        "√π / 2",
+        "π / 2",
+        "1",
+        "2"
+    ],
+    answer:"√π / 2"
+},
+
+{
+    question:"2. Evaluate ∫₀∞ x² e⁻²ˣ² dx",
+    options:[
+        "3/8",
+        "1/2",
+        "√π",
+        "2"
+    ],
+    answer:"3/8"
+},
+
+{
+    question:"3. Evaluate ∫₀∞ √y e⁻ʸ³ dy",
+    options:[
+        "√π / 3",
+        "π",
+        "1",
+        "2"
+    ],
+    answer:"√π / 3"
+},
+
+{
+    question:"4. Evaluate ∫₀∞ √y e⁻√y dy",
+    options:[
+        "2",
+        "1",
+        "√π",
+        "4"
+    ],
+    answer:"2"
+},
+
+{
+    question:"5. Evaluate ∫₀∞ e⁻ˣ⁴ dx",
+    options:[
+        "1/4 Γ(1/4)",
+        "Γ(1/2)",
+        "π",
+        "2"
+    ],
+    answer:"1/4 Γ(1/4)"
+}
+
+];
+
+// VARIABLES
+
+let currentQuestion = 0;
+let score = 0;
+
+// LOAD QUESTION
+
+function loadQuestion(){
+
+    const q = quiz[currentQuestion];
+
+    document.getElementById("question").innerHTML =
+        q.question;
+
+    let optionsHTML = "";
+
+    q.options.forEach(option => {
+
+        optionsHTML += `
+        <button class="option"
+        onclick="checkAnswer('${option}')">
+        ${option}
+        </button>
+        `;
+    });
+
+    document.getElementById("options").innerHTML =
+        optionsHTML;
+}
+
+// CHECK ANSWER
+
+function checkAnswer(selected){
+
+    const correctAnswer =
+        quiz[currentQuestion].answer;
+
+    if(selected === correctAnswer){
+        score++;
+    }
+
+    let buttons =
+        document.querySelectorAll(".option");
+
+    buttons.forEach(btn => {
+        btn.disabled = true;
+    });
+}
+
+// NEXT QUESTION
+
+function nextQuestion(){
+
+    currentQuestion++;
+
+    if(currentQuestion < quiz.length){
+
+        loadQuestion();
+
+    } else {
+
+        endQuiz();
+    }
+}
+
+// END QUIZ
+
+function endQuiz(){
+
+    document.getElementById("question").innerHTML =
+        "Quiz Completed!";
+
+    document.getElementById("options").innerHTML = "";
+
+    document.getElementById("nextBtn").style.display =
+        "none";
+
+    document.getElementById("result").innerHTML =
+        "Your Score: " + score + " / " + quiz.length;
+}
+
+// TIMER
+
+let timeLeft = 300; // 5 minutes
+
+const timer = setInterval(function(){
+
+    let minutes =
+        Math.floor(timeLeft / 60);
+
+    let seconds =
+        timeLeft % 60;
+
+    if(seconds < 10){
+        seconds = "0" + seconds;
+    }
+
+    document.getElementById("timer").innerHTML =
+        "Time Left: " + minutes + ":" + seconds;
+
+    timeLeft--;
+
+    if(timeLeft < 0){
+
+        clearInterval(timer);
+
+        alert("Time Over!");
+
+        endQuiz();
+    }
+
+},1000);
+
+// START QUIZ
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
